@@ -28,18 +28,18 @@ class UrlApiController extends Controller
     
     public function update(Url $url) {
         request()->validate([
-            'url' => 'required|url',
+            'url' => 'required|url|unique:urls',
         ]);
         
         $success = $url->update([
-            'url' => 'required',
+            'url' => request('url'),
         ]);
-    
+
         return [
-            'success' => $success,
+            'success' => $success 
         ];
     }
-    
+
     public function destroy(Url $url) {
         $success = $url->delete();
     
