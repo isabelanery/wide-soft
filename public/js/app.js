@@ -5498,6 +5498,8 @@ var Table = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var urlsList = this.state.urlsList;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "container",
@@ -5528,7 +5530,8 @@ var Table = /*#__PURE__*/function (_React$Component) {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
                   children: urlsList.map(function (url, i) {
                     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TableRow__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                      data: url
+                      data: url,
+                      updateList: _this2.getUrlList
                     }, i);
                   })
                 })]
@@ -5608,18 +5611,41 @@ var TableActionButtons = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "getUrlDetails", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    })));
+    _defineProperty(_assertThisInitialized(_this), "getUrlDetails", /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(urlId) {
+        var _yield$axios$get, data;
 
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get('/api/urls/' + urlId);
+
+              case 2:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+
+                _this.setState({
+                  urlDetails: data[0]
+                });
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+
+    _this.state = {
+      urlDetails: undefined
+    };
     return _this;
   }
 
@@ -5628,20 +5654,28 @@ var TableActionButtons = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var urlId = this.props.urlId;
+      var _this$props = this.props,
+          urlId = _this$props.urlId,
+          url = _this$props.url,
+          updateList = _this$props.updateList;
+      var urlDetails = this.state.urlDetails;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "btn-group",
         role: "group",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           type: "button",
-          className: "btn btn-primary",
+          className: "btn btn-info",
           "data-bs-toggle": "modal",
           "data-bs-target": "#updateModal",
           onClick: function onClick() {
             return _this2.getUrlDetails(urlId);
           },
           children: "Update"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_modals_UpdateModal__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_modals_UpdateModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          updateList: updateList,
+          url: url,
+          urlId: urlId
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           type: "button",
           className: "btn btn-danger",
           children: "Delete"
@@ -5712,9 +5746,11 @@ var TableRow = /*#__PURE__*/function (_React$Component) {
   _createClass(TableRow, [{
     key: "render",
     value: function render() {
-      var _this$props$data = this.props.data,
+      var _this$props = this.props,
+          _this$props$data = _this$props.data,
           url = _this$props$data.url,
-          id = _this$props$data.id;
+          id = _this$props$data.id,
+          updateList = _this$props.updateList;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
           scope: "row",
@@ -5725,7 +5761,9 @@ var TableRow = /*#__PURE__*/function (_React$Component) {
           children: "Response"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_TableActionButtons__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            urlId: id
+            urlId: id,
+            url: url,
+            updateList: updateList
           })
         })]
       });
@@ -5792,7 +5830,10 @@ var UpdateModal = /*#__PURE__*/function (_React$Component) {
   _createClass(UpdateModal, [{
     key: "render",
     value: function render() {
-      var modalId = this.props.modalId;
+      var _this$props = this.props,
+          url = _this$props.url,
+          urlId = _this$props.urlId,
+          updateList = _this$props.updateList;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "modal fade",
         id: "updateModal",
@@ -5810,7 +5851,7 @@ var UpdateModal = /*#__PURE__*/function (_React$Component) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h5", {
                 className: "modal-title",
                 id: "exampleModalLabel",
-                children: "Modal title"
+                children: "Update"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                 type: "button",
                 className: "btn-close",
@@ -5819,19 +5860,29 @@ var UpdateModal = /*#__PURE__*/function (_React$Component) {
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
               className: "modal-body",
-              children: "..."
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                  className: "form-group",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "inputUrl" + urlId,
+                    children: "URL address"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    type: "text",
+                    name: "url",
+                    className: "form-control",
+                    id: "inputUrl" + urlId,
+                    placeholder: url
+                  })]
+                })
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
               className: "modal-footer",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                type: "button",
-                className: "btn btn-secondary",
-                "data-bs-dismiss": "modal",
-                children: "Close"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                type: "button",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                type: "submit",
                 className: "btn btn-primary",
-                children: "Save changes"
-              })]
+                onClick: function onClick() {},
+                children: "Save"
+              })
             })]
           })
         })

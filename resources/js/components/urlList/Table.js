@@ -41,7 +41,7 @@ class Table extends React.Component {
                             </thead>
                             <tbody>
                                 {
-                                    urlsList.map((url, i) => <TableRow key={ i } data={ url } />)
+                                    urlsList.map((url, i) => <TableRow key={ i } data={ url } updateList={ this.getUrlList } />)
                                 }
                                 
                             </tbody>

@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/urls', [UrlApiController::class, 'list']);
 
+Route::get('/urls/{id}', [UrlApiController::class, 'findById']);
+
 Route::post('/urls', [UrlApiController::class, 'create']);
 
 Route::put('/urls/{url}', [UrlApiController::class, 'update']);

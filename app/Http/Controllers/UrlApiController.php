@@ -12,6 +12,10 @@ class UrlApiController extends Controller
         return Url::all();
     }
     
+    public function findById(Url $id) {
+        return Url::find($id);
+    }
+    
     public function create() {
         request()->validate([
             'url' => 'required|url|unique:urls',
