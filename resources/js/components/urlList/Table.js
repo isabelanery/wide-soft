@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TableRow from './TableRow';
 
 class Table extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            urls: [],
+            urlsList: [],
         }
     }
 
     getUrlList = async () => {
         const { data } = await axios.get('/api/urls');
 
-        console.log(data);
+        this.setState({ urlsList: data })
     }
 
     componentDidMount() {
@@ -21,6 +22,8 @@ class Table extends React.Component {
     }
 
     render() {
+        const { urlsList } = this.state;
+
         return (
             <div className="container">
             <div className="row justify-content-center">
@@ -37,12 +40,9 @@ class Table extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
+                                {
+                                    urlsList.map((url) => <TableRow data={url} />)
+                                }
                                 
                             </tbody>
                         </table>
