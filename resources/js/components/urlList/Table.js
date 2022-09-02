@@ -2,7 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class Table extends React.Component {
-    
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            urls: [],
+        }
+    }
+
+    getUrlList = () => {
+        
+    }
 
     render() {
         return (

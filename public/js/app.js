@@ -5431,6 +5431,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -5441,10 +5443,19 @@ var Table = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Table);
 
-  function Table() {
+  function Table(props) {
+    var _this;
+
     _classCallCheck(this, Table);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "getUrlList", function () {});
+
+    _this.state = {
+      urls: []
+    };
+    return _this;
   }
 
   _createClass(Table, [{
