@@ -10,8 +10,14 @@ class Table extends React.Component {
         }
     }
 
-    getUrlList = () => {
-        
+    getUrlList = async () => {
+        const { data } = await axios.get('/api/urls');
+
+        console.log(data);
+    }
+
+    componentDidMount() {
+        this.getUrlList();
     }
 
     render() {
