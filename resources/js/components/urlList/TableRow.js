@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import TableActionButtons from './TableActionButtons';
 
 class TableRow extends React.Component {
     constructor(props) {
@@ -14,7 +14,9 @@ class TableRow extends React.Component {
           <th scope="row">{ id }</th>
           <td>{ url }</td>
           <td>Response</td>
-          <td>HTML</td>
+          <td>
+            <TableActionButtons urlId={ id } />
+          </td>
           </tr>
         );
     }

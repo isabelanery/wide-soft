@@ -36,12 +36,12 @@ class Table extends React.Component {
                                 <th scope="col">#</th>
                                 <th scope="col">URL</th>
                                 <th scope="col">Response</th>
-                                <th scope="col">HTML</th>
+                                <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    urlsList.map((url) => <TableRow data={url} />)
+                                    urlsList.map((url, i) => <TableRow key={ i } data={ url } />)
                                 }
                                 
                             </tbody>
