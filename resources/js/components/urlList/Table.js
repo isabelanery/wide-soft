@@ -1,6 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import TableRow from './TableRow';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 class Table extends React.Component {
     constructor(props) {
@@ -26,6 +28,7 @@ class Table extends React.Component {
 
         return (
             <div className="container">
+                <ToastContainer />
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">

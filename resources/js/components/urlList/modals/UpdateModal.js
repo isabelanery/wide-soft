@@ -1,4 +1,6 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class UpdateModal extends React.Component {
     constructor(props) {
@@ -27,10 +29,16 @@ class UpdateModal extends React.Component {
 
     updateUrl = async (urlId) => {
       const { url } = this.state;
+      const { updateList } = this.props;
 
       await axios.put('api/urls/'+urlId, { url });
       
-      location.reload();
+      toast.success("Url Updated Succesfully")
+
+      setTimeout(() => {
+        location.reload();
+      }, 2500)
+
     }
 
     render() {
