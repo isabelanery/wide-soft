@@ -1,6 +1,6 @@
 import React from 'react';
 import UpdateModal from './modals/UpdateModal';
-import DeleteModel from './modals/DeleteModel';
+import DeleteModal from './modals/DeleteModal';
 
 class TableActionButtons extends React.Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class TableActionButtons extends React.Component {
             >
               Update
             </button>
-            <UpdateModal updateList={ updateList } url={ url } urlId={ urlId } />
+            <UpdateModal url={ url } urlId={ urlId } />
 
             <button
               type="button"
@@ -43,7 +43,7 @@ class TableActionButtons extends React.Component {
             >
               Delete
             </button>
-            <DeleteModel />
+            <DeleteModal url={ url } urlId={ urlId } />
 
           </div>
         );

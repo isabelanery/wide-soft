@@ -21,7 +21,6 @@ class UpdateModal extends React.Component {
         const regex = new RegExp(expression);
         const isUrlValid = regex.test(url);
         
-        console.log(isUrlValid);
         this.setState({ disableBtn: !isUrlValid });
       });
     }
@@ -29,7 +28,6 @@ class UpdateModal extends React.Component {
 
     updateUrl = async (urlId) => {
       const { url } = this.state;
-      const { updateList } = this.props;
 
       await axios.put('api/urls/'+urlId, { url });
       
@@ -42,7 +40,7 @@ class UpdateModal extends React.Component {
     }
 
     render() {
-      const { url, urlId, updateList } = this.props;
+      const { url, urlId } = this.props;
       const { disableBtn } = this.state;
 
         return (
@@ -71,6 +69,8 @@ class UpdateModal extends React.Component {
                 </div>
                     
                 <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
                   <button
                     type="submit"
                     className="btn btn-primary"
