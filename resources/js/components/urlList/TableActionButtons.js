@@ -1,5 +1,6 @@
 import React from 'react';
 import UpdateModal from './modals/UpdateModal';
+import DeleteModel from './modals/DeleteModel';
 
 class TableActionButtons extends React.Component {
     constructor(props) {
@@ -15,8 +16,6 @@ class TableActionButtons extends React.Component {
       this.setState({ urlDetails: data[0] });
     }
 
-    
-
     render() {
       const { urlId, url, updateList } = this.props;
       const { urlDetails } = this.state;
@@ -28,14 +27,24 @@ class TableActionButtons extends React.Component {
               type="button"
               className="btn btn-info"
               data-bs-toggle="modal"
-              data-bs-target="#updateModal"
+              data-bs-target={"#updateModal"+urlId}
               onClick={ () => this.getUrlDetails(urlId)}
             >
               Update
             </button>
             <UpdateModal updateList={ updateList } url={ url } urlId={ urlId } />
 
-            <button type="button" className="btn btn-danger">Delete</button>
+            <button
+              type="button"
+              className="btn btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target={"#deleteModal"+urlId}
+              onClick={ () => this.getUrlDetails(urlId)}
+            >
+              Delete
+            </button>
+            <DeleteModel />
+
           </div>
         );
     }
