@@ -5970,7 +5970,7 @@ var CreateModal = /*#__PURE__*/function (_React$Component) {
                   children: "Close"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                   type: "submit",
-                  className: "btn btn-primary",
+                  className: "btn btn-info",
                   disabled: disableBtn,
                   onClick: function onClick() {
                     return _this2.createUrl();

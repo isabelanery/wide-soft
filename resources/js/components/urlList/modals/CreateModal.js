@@ -81,7 +81,7 @@ class CreateModal extends React.Component {
 
                     <button
                       type="submit"
-                      className="btn btn-primary"
+                      className="btn btn-info"
                       disabled={ disableBtn }
                       onClick={ () => this.createUrl() }
                     >
