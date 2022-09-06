@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import config from '../../../../config.json';
+import config from '../../../config.json';
 
 class UpdateModal extends React.Component {
     constructor(props) {

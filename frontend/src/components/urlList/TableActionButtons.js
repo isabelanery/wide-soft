@@ -2,7 +2,7 @@ import React from 'react';
 import UpdateModal from './modals/UpdateModal';
 import DeleteModal from './modals/DeleteModal';
 import axios from 'axios';
-import config from '../../../config.json';
+import config from '../../config.json';
 
 class TableActionButtons extends React.Component {
     constructor(props) {

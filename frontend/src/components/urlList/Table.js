@@ -4,7 +4,7 @@ import { ToastContainer /* , toast */ } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CreateModal from './modals/CreateModal';
 import axios from 'axios';
-import config from '../../../config.json';
+import config from '../../config.json';
 
 class Table extends React.Component {
     constructor(props) {

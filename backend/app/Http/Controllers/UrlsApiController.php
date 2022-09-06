@@ -16,10 +16,10 @@ class UrlsApiController extends Controller
     }
     
     public function create() {
-        // request()->validate([
-        //     'url' => 'required|url|unique:urls',
-        //     'user_id' => 'required',
-        // ]);
+        request()->validate([
+            'url' => 'required|url|unique:urls',
+            'user_id' => 'required',
+        ]);
         
         return Url::create([
             'url' => request('url'),
