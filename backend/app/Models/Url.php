@@ -12,7 +12,6 @@ class Url extends Model
 
     protected $fillable = [
         'url',
-        'user_id'
     ];
 
     public function owner()

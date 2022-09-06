@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Url;
 
 class UsersApiController extends Controller
 {
@@ -21,7 +22,9 @@ class UsersApiController extends Controller
         ]);
     }
 
-    public function urlList(User $id) {
-        return User::find($id);
+    public function urlList($userId) {
+        // return User::find($id);
+        // return User::find($userId)->urlList();
+        return Url::where('user_id', $userId);
     }
 }
