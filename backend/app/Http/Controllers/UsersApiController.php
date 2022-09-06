@@ -22,6 +22,6 @@ class UsersApiController extends Controller
     }
 
     public function urlList(User $id) {
-        $urls = Auth::user()->with('Urls')->get()->toArray();
+        return User::find($id);
     }
 }
