@@ -11,7 +11,8 @@ use App\Models\Url;
 class UsersApiController extends Controller
 {
     public function list() {
-        return User::all();
+        // return User::all();
+        return User::with('urls')->get();
     }
     
     protected function create() {
@@ -22,9 +23,11 @@ class UsersApiController extends Controller
         ]);
     }
 
-    public function urlList($userId) {
-        // return User::find($id);
+
+
+    public function urlList(User $id) {
+        return User::with('urls')->find($id);
         // return User::find($userId)->urlList();
-        return Url::where('user_id', $userId);
+        // return Url::where('user_id', $userId);
     }
 }

@@ -12,9 +12,10 @@ class Url extends Model
 
     protected $fillable = [
         'url',
+        'user_id'
     ];
 
-    public function owner()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
