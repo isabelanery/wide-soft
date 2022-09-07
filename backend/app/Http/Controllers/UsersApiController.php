@@ -34,6 +34,12 @@ class UsersApiController extends Controller
         $email = request('email');
         $user = User::where('email', $email)->first();
 
+        if (!$user) {
+            return [
+                'success' => false,
+            ];
+        }
+
         $verifyPassword = Hash::check(request('password'), $user->password);
         
         return [
