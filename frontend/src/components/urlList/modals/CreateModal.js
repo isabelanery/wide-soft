@@ -31,7 +31,7 @@ class CreateModal extends React.Component {
     createUrl = async () => {
       const { url } = this.state;
 
-      await axios.post(config.API_URL+'api/urls/', { url });
+      await axios.post(config.API_URL+'/urls', { url });
       
       toast.success("Url Saved Succesfully")
 

@@ -14,7 +14,7 @@ class TableActionButtons extends React.Component {
     }
 
     getUrlDetails = async (urlId) => {
-      const { data } = await axios.get(config.API_URL+'/api/urls/'+urlId);
+      const { data } = await axios.get(config.API_URL+'/urls/'+urlId);
       this.setState({ urlDetails: data[0] });
     }
 

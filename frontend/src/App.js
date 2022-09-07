@@ -6,8 +6,8 @@ import Login from './pages/Login';
 function App() {
   return (
     <Routes>
-      <Route exact path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
+      <Route exact path="/" element={<Login />} />
+      <Route exact path="/home" element={<Home />} />
     </Routes>
   );
 }

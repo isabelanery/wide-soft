@@ -30,7 +30,7 @@ class UpdateModal extends React.Component {
     updateUrl = async (urlId) => {
       const { url } = this.state;
 
-      await axios.put(config.API_URL+'api/urls/'+urlId, { url });
+      await axios.put(config.API_URL+'/urls/'+urlId, { url });
       
       toast.success("Url Updated Succesfully")
 

@@ -6,7 +6,7 @@ import config from '../../../config.json';
 
 class DeleteModal extends React.Component {
     deleteUrl = async (urlId) => {
-      await axios.delete(config.API_URL+'api/urls/'+urlId);
+      await axios.delete(config.API_URL+'/urls/'+urlId);
       
       toast.error("Url Deleted Succesfully")
 

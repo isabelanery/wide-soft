@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Redirect, useState } from 'react'
 import axios from 'axios';
 import config from '../config.json';
 import { validateEmail } from '../helpers/validate';
@@ -11,8 +11,8 @@ function Login() {
     password: '',
   });
 
-  let inputs = {
-    email: '',
+  // pra ajudar no controle do disableBtn
+  const inputs = {
     password: '',
   }
 
@@ -21,7 +21,7 @@ function Login() {
     
     setInputControl({ ...inputControl, [name]: value });
     
-    inputs = {...inputs, [name]: value };
+    if (name === 'password') inputs.password = value;
 
     console.log(inputs);
     validateInputs(inputControl.email, inputs.password);
@@ -38,14 +38,16 @@ function Login() {
   const handleLogin = async (event) => {
     event.preventDefault();
     
-    const login = await axios.post(config.API_URL+'api/urls/', {
+    const { data } = await axios.post(config.API_URL+'/login', {
       email: inputControl.email,
       password: inputControl.password,
     });
 
-    console.log(login);
+    console.log(data.success);
 
-    // context login-true 
+    if (data.success) {
+      // <Redirect to="/home" />
+    }
   }
 
   return (

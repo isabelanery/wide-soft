@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppContext from './AppContext';
 
 function Provider(props) {
   const { children } = props;
+  const [logedIn, setLogedIn] = useState(false);
 
   const contextValue = {
-    login: false,
+    logedIn,
+    setLogedIn,
   };
   
   return (

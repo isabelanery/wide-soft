@@ -16,7 +16,7 @@ class Table extends React.Component {
     }
 
     getUrlList = async () => {
-        const { data } = await axios.get(config.API_URL+'/api/urls');
+        const { data } = await axios.get(config.API_URL+'/urls');
 
         this.setState({ urlsList: data })
     }
