@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import config from '../../../config.json';
+import { validateUrl } from '../../../helpers/validate';
 
 class UpdateModal extends React.Component {
     constructor(props) {
@@ -19,9 +20,7 @@ class UpdateModal extends React.Component {
 
       this.setState({ [name]: value }, () => {
         const { url } = this.state;
-        const expression = /[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/;
-        const regex = new RegExp(expression);
-        const isUrlValid = regex.test(url);
+        const isUrlValid = validateUrl(url);
         
         this.setState({ disableBtn: !isUrlValid });
       });

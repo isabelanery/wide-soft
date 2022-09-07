@@ -7,11 +7,11 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <HashRouter>
-    <React.StrictMode>
+  <React.StrictMode>
+    <HashRouter>
       <Provider>
         <App />
       </Provider>
-    </React.StrictMode>
-  </HashRouter>
+    </HashRouter>
+  </React.StrictMode>
 );
