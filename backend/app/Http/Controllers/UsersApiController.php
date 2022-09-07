@@ -12,9 +12,8 @@ class UsersApiController extends Controller
 {
     public function list() {
         return User::all();
-        // return User::with('urls')->get();
     }
-    
+
     protected function create() {
         request()->validate([
             'email' => 'required|email|unique:emails'
@@ -30,7 +29,7 @@ class UsersApiController extends Controller
     public function urlList(User $id) {
         return User::with('urls')->find($id);
     }
-    
+
     public function login() {
         $email = request('email');
         $user = User::where('email', $email)->first();
@@ -41,5 +40,4 @@ class UsersApiController extends Controller
             'success' => $verifyPassword,
         ];
     }
-
 }

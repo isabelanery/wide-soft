@@ -26,10 +26,7 @@ Route::post('/users', [UsersApiController::class, 'create']);
 
 Route::get('/users/{id}', [UsersApiController::class, 'urlList']);
 
-// working on it
 Route::post('/login', [UsersApiController::class, 'login']);
-
-
 
 Route::get('/urls', [UrlsApiController::class, 'list']);
 
