@@ -22,10 +22,7 @@ class CreateUrlsTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
             $table->timestamps();
-            // $table->foreignId('user_id')
-            //     ->references('id')
-            //     ->on('users')
-            //     ->onDelete('cascade');
+            
         });
     }
 

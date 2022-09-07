@@ -11,11 +11,15 @@ use App\Models\Url;
 class UsersApiController extends Controller
 {
     public function list() {
-        // return User::all();
-        return User::with('urls')->get();
+        return User::all();
+        // return User::with('urls')->get();
     }
     
     protected function create() {
+        request()->validate([
+            'email' => 'required|email|unique:emails'
+        ]);
+
         return User::create([
             'name' => request('name'),
             'email' => request('email'),
@@ -23,11 +27,19 @@ class UsersApiController extends Controller
         ]);
     }
 
-
-
     public function urlList(User $id) {
         return User::with('urls')->find($id);
-        // return User::find($userId)->urlList();
-        // return Url::where('user_id', $userId);
     }
+    
+    public function login() {
+        $email = request('email');
+        $user = User::where('email', $email)->first();
+
+        $verifyPassword = Hash::check(request('password'), $user->password);
+        
+        return [
+            'success' => $verifyPassword,
+        ];
+    }
+
 }

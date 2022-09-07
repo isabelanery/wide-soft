@@ -24,8 +24,10 @@ Route::get('/users', [UsersApiController::class, 'list']);
 
 Route::post('/users', [UsersApiController::class, 'create']);
 
-// working on it
 Route::get('/users/{id}', [UsersApiController::class, 'urlList']);
+
+// working on it
+Route::post('/login', [UsersApiController::class, 'login']);
 
 
 

@@ -6,9 +6,9 @@ import Login from './pages/Login';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route index element={<Home />} />
-      <Route path="/login" element={<Login />} />
+      {/* <Route index element={<Home />} /> */}
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
     </Routes>
   );
 }

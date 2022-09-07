@@ -13,6 +13,7 @@ class Url extends Model
     protected $fillable = [
         'url',
         'user_id'
+        // 'response'
     ];
 
     public function user()
