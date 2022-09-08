@@ -30,12 +30,10 @@ class UrlsApiController extends Controller
     public function update(Url $url) {
         request()->validate([
             'url' => 'required|url|unique:urls',
-            'user_id' => 'required',
         ]);
         
         $success = $url->update([
             'url' => request('url'),
-            'user_id' => request('user_id'),
         ]);
 
         return [

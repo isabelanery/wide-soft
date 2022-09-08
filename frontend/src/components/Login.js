@@ -8,7 +8,7 @@ function Login() {
   const [disableBtn, setDisableBtn] = useState(true);
   const [wrongInputs, setWrongInputs] = useState(false);
 
-  const { setLogedIn } = useContext(AppContext);
+  const { setLogedIn, setUserId } = useContext(AppContext);
   
   const [inputControl, setInputControl] = useState({
     email: '',
@@ -49,6 +49,10 @@ function Login() {
 
     setLogedIn(data.success);
     setWrongInputs(!data.success);
+    setUserId(data.userId);
+    
+    localStorage.setItem('logedIn', true);
+    localStorage.setItem('userId', data.userId);
   }
 
   return (

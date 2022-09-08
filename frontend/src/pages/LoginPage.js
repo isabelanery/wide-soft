@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import AppContext from '../components/context/AppContext';
 import Login from '../components/Login';
 import Register from '../components/Register';
@@ -8,6 +8,7 @@ function LoginPage() {
   const { register, setRegister } = useContext(AppContext);
 
   const handleRegister = () => setRegister(!register);
+
   
   return (
     <div className="login">

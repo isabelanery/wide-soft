@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import config from '../../../config.json';
+import AppContext from '../../context/AppContext';
 
 class CreateModal extends React.Component {
     constructor(props) {
@@ -27,11 +28,11 @@ class CreateModal extends React.Component {
       });
     }
     
-
     createUrl = async () => {
       const { url } = this.state;
-
-      await axios.post(config.API_URL+'/urls', { url });
+      const { userId } = this.context;
+      console.log(userId);
+      await axios.post(config.API_URL+'/urls', { url, 'user_id': userId });
       
       toast.success("Url Saved Succesfully")
 
@@ -39,7 +40,6 @@ class CreateModal extends React.Component {
         // eslint-disable-next-line no-restricted-globals
         location.reload();
       }, 2500)
-
     }
 
     render() {
@@ -99,5 +99,7 @@ class CreateModal extends React.Component {
         );
     }
 }
+
+CreateModal.contextType = AppContext;
 
 export default CreateModal;

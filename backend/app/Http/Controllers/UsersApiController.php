@@ -40,6 +40,7 @@ class UsersApiController extends Controller
         
         return [
             'success' => $verifyPassword,
+            'userId' => $user->id,
         ];
     }
 }

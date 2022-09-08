@@ -6,12 +6,15 @@ function Provider(props) {
   
   const [logedIn, setLogedIn] = useState(false);
   const [register, setRegister] = useState(false);
+  const [userId, setUserId] = useState();
 
   const contextValue = {
     logedIn,
     setLogedIn,
     register,
     setRegister,
+    userId,
+    setUserId
   };
   
   return (

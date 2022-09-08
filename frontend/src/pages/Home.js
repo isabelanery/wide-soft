@@ -5,7 +5,11 @@ import Table from '../components/urlList/Table';
 function Home() {
   const { setLogedIn } = useContext(AppContext);
 
-  const handleLogOut = () => setLogedIn(false);
+  const handleLogOut = () => {
+    localStorage.setItem('logedIn', false);
+    localStorage.setItem('userId', undefined);
+    setLogedIn(false);
+  }
 
   return (
     <div className="home-container">
