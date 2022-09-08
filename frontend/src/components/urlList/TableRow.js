@@ -25,6 +25,8 @@ class TableRow extends React.Component {
   }
 
   componentDidMount() {
+    this.script();
+    
     const twoMin = 120000;
 
     this.interval = setInterval(() => {
