@@ -6,7 +6,7 @@ import AppContext from './context/AppContext';
 
 function Login() {
   const [disableBtn, setDisableBtn] = useState(true);
-  const [wrongInputs, setWrongInputs] = useState(true);
+  const [wrongInputs, setWrongInputs] = useState(false);
 
   const { setLogedIn } = useContext(AppContext);
   
@@ -50,7 +50,7 @@ function Login() {
     setLogedIn(data.success);
     setWrongInputs(!data.success);
   }
-  
+
   return (
     <form>
       <div className="row mb-3">

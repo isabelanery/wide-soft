@@ -15,10 +15,6 @@ class UsersApiController extends Controller
     }
 
     protected function create() {
-        request()->validate([
-            'email' => 'required|email|unique:emails'
-        ]);
-
         return User::create([
             'name' => request('name'),
             'email' => request('email'),

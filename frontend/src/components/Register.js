@@ -47,12 +47,11 @@ function Register() {
       password: inputControl.password,
     });
 
-    if (data.id) toast.success("User Created Succesfully");
+    if (data) toast.success("User Created Succesfully");
 
     setTimeout(() => {
-      // eslint-disable-next-line no-restricted-globals
       setRegister(false);
-    }, 2500)
+    }, 3000)
   
   }
 

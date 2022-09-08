@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import AppContext from '../components/context/AppContext';
 import Login from '../components/Login';
 import Register from '../components/Register';
+import { ToastContainer } from 'react-toastify';
 
 function LoginPage() {
   const { register, setRegister } = useContext(AppContext);
@@ -11,6 +12,7 @@ function LoginPage() {
   return (
     <div className="login">
       <div className="container ">
+        <ToastContainer />
         <div className="row justify-content-center">
           <div className="row text-right mb-3 pb-3">
             <button 
