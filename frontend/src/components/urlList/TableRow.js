@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import DetailsModal from './modals/DetailsModal';
 import TableActionButtons from './TableActionButtons';
 
 class TableRow extends React.Component {
@@ -16,8 +17,6 @@ class TableRow extends React.Component {
     const { data: { url } } = this.props;
 
     const data = await axios.get(url);
-    console.log(url);
-    console.log(data.status);
 
     this.setState({
       status: data.status,
@@ -26,7 +25,15 @@ class TableRow extends React.Component {
   }
 
   componentDidMount() {
-    this.script();
+    const twoMin = 120000;
+
+    this.interval = setInterval(() => {
+      this.script();
+    }, twoMin)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {
@@ -38,7 +45,18 @@ class TableRow extends React.Component {
         <th scope="row">{ id }</th>
         <td>{ url }</td>
         <td>{ status }</td>
-        <td>DETAILS</td>
+        <td>
+        <button
+              type="button"
+              className="btn btn-info"
+              data-bs-toggle="modal"
+              data-bs-target={"#detailsModal"+id}
+              // onClick={ () => this.getUrlDetails(urlId)}
+            >
+              Details
+            </button>
+            <DetailsModal details={ response } urlId={ id } />
+        </td>
         <td>
           <TableActionButtons urlId={ id } url={url} />
         </td>
