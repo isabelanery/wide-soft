@@ -1,13 +1,25 @@
-import { Route, Routes } from 'react-router-dom';
+import { useContext } from 'react';
+import { Route, Navigate, Routes } from 'react-router-dom';
 import './App.css';
+import AppContext from './components/context/AppContext';
 import Home from './pages/Home';
-import Login from './pages/Login';
+import LoginPage from './pages/LoginPage';
 
 function App() {
+  const { logedIn } = useContext(AppContext);
+
   return (
     <Routes>
-      <Route exact path="/" element={<Login />} />
-      <Route exact path="/home" element={<Home />} />
+      <Route 
+        exact
+        path="/" 
+        element={ logedIn ? <Home /> : <LoginPage />}
+      />
+
+      <Route
+        path="*"
+        element={<Navigate to="/" replace />}
+      />
     </Routes>
   );
 }

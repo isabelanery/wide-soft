@@ -7,5 +7,14 @@
 }
 
 .loginBtn {
-  margin-top: 2rem;
+  margin-top: 1rem;
+}
+
+.invalid-inputs {
+  color: red;
+  margin-top: 1rem;
+}
+
+.home-container {
+  margin: 4.5rem;
 }
