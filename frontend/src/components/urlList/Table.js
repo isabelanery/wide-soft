@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import CreateModal from './modals/CreateModal';
 import axios from 'axios';
 import config from '../../config.json';
+import AppContext from '../context/AppContext';
 
 class Table extends React.Component {
     constructor(props) {
@@ -16,9 +17,11 @@ class Table extends React.Component {
     }
 
     getUrlList = async () => {
-        const { data } = await axios.get(config.API_URL+'/urls');
+        const userId = localStorage.getItem('userId');
 
-        this.setState({ urlsList: data })
+        const { data } = await axios.get(config.API_URL+'/users/'+userId);
+
+        this.setState({ urlsList: data[0].urls })
     }
 
     componentDidMount() {
@@ -59,5 +62,7 @@ class Table extends React.Component {
         );
     }
 }
+
+CreateModal.contextType = AppContext;
 
 export default Table;

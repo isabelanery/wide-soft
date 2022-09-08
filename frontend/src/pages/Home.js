@@ -1,15 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import AppContext from '../components/context/AppContext';
 import Table from '../components/urlList/Table';
 
 function Home() {
-  const { setLogedIn } = useContext(AppContext);
+  const { setLogedIn, setUserId } = useContext(AppContext);
 
   const handleLogOut = () => {
     localStorage.setItem('logedIn', false);
     localStorage.setItem('userId', undefined);
     setLogedIn(false);
   }
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    setUserId(userId);
+  }, []);
 
   return (
     <div className="home-container">
