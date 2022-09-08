@@ -35,7 +35,8 @@ function Register() {
     
     if (name === 'password') inputs.password = value;
 
-    validateInputs(inputControl.email, inputs.password);
+    const password = inputs.password === '' ? inputControl.password : inputs.password;
+    validateInputs(inputControl.email, password);
   }
 
   const handleRegister = async (event) => {
@@ -52,7 +53,6 @@ function Register() {
     setTimeout(() => {
       setRegister(false);
     }, 3000)
-  
   }
 
   return (

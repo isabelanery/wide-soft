@@ -27,8 +27,8 @@ function Login() {
     
     if (name === 'password') inputs.password = value;
 
-    console.log(inputs);
-    validateInputs(inputControl.email, inputs.password);
+    const password = inputs.password === '' ? inputControl.password : inputs.password;
+    validateInputs(inputControl.email, password);;
   }
 
   const validateInputs = (email, password) => {
