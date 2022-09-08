@@ -37,12 +37,12 @@ class TableRow extends React.Component {
   }
 
   render() {
-    const { data: { url, id } } = this.props;
+    const { data: { url, id }, index } = this.props;
     const { status, response } = this.state;
 
       return (
         <tr>
-        <th scope="row">{ id }</th>
+        <th scope="row">{ index+1 }</th>
         <td>{ url }</td>
         <td>{ status }</td>
         <td>
