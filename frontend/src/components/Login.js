@@ -38,6 +38,7 @@ function Login() {
     const validInputs = isEmailValid && isPasswordValid;
     setDisableBtn(!validInputs);
   }
+
   const handleLogin = async (event) => {
     event.preventDefault();
     
@@ -49,6 +50,7 @@ function Login() {
     setLogedIn(data.success);
     setWrongInputs(!data.success);
   }
+  
   return (
     <form>
       <div className="row mb-3">
