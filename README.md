@@ -47,10 +47,10 @@ Criando pelo WorkBench:
 Abra uma nova janela no terminal, navegue até o projeto e entre na pasta `/frontend`.
 
 #### 1. Instalando as dependencias
-`npm install`
+- `npm install`
 
 #### 2. Rodando o projeto
-`npm start`
+- `npm start`
 
 Acesse a aplicação frontend: http://localhost:3000
 
