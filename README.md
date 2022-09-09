@@ -5,8 +5,17 @@ Esse é meu primeiro projeto com PHP e Laravel.
 Foi desenvolvido para o processo seletivo da empresa Wide Pay. 
 O objetivo era criar uma aplicação onde os clientes - usuário cadastrados - pudessem cadastrar os URLs que desejam rastrear. 
 
-## Instalação e execução
+## Ferramentas utilizadas
+- MySQL
+- PHP
+- Laravel
+- Composer
+- Axios
+- ReactJS
+- React Router Dom
+- Toastify
 
+## Instalação e execução
 Para rodar esta aplicação é necessário ter instalado no seu computador:
 - [PHP](https://www.php.net/manual/pt_BR/install.php)
 - [Composer](https://getcomposer.org/)
@@ -47,11 +56,11 @@ Criando pelo WorkBench:
 Abra uma nova janela no terminal, navegue até o projeto e entre na pasta `/frontend`.
 
 #### 1. Instalando as dependencias
-- `npm install`
+  - `npm install`
 
 #### 2. Rodando o projeto
-- `npm start`
+  - `npm start`
 
 Acesse a aplicação frontend: http://localhost:3000
 
-Para fazer login, é necessário antes fazer um cadastro de usuário.
+Cadastre-se, faça o login e adicione um novo URL. 
