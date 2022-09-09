@@ -19,7 +19,7 @@ Para rodar esta aplicação é necessário ter instalado no seu computador:
 
   - `cd wide-soft` 
 
-### Backend
+## Backend
 Em uma janela do terminal, navegue até o projeto e entre na pasta `/backend` e siga as instruções.
 
 #### 1. Configure as variáveis de ambiente
@@ -43,7 +43,7 @@ Criando pelo WorkBench:
 #### 4. Subindo a API 
   - `php artisan serve`
 
-### Frontend
+## Frontend
 Abra uma nova janela no terminal, navegue até o projeto e entre na pasta `/frontend`.
 
 #### 1. Instalando as dependencias
