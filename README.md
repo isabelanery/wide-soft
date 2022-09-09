@@ -21,10 +21,11 @@ Para rodar esta aplicação é necessário ter instalado no seu computador:
 - [Composer](https://getcomposer.org/)
 - [Laravel](https://laravel.com/docs/4.2#install-composer)
 - [MySql](https://dev.mysql.com/doc/mysql-getting-started/en/)
+- [NodeJS](https://nodejs.org/en/download/)
 
 #### 1. Clone o repositório e entre na pasta do projeto
 
-  - `git clone git@github.com:isabelanery/wide-soft.git`.
+  - `git clone https://github.com/isabelanery/wide-soft.git`.
 
   - `cd wide-soft` 
 
