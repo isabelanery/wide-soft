@@ -44,6 +44,7 @@ class Table extends React.Component {
                                 <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">URL</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Response</th>
                                 <th scope="col">Actions</th>
                                 </tr>
