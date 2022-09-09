@@ -52,6 +52,24 @@ Criando pelo WorkBench:
 #### 4. Subindo a API 
   - `php artisan serve`
 
+Você pode acessar o server: http://127.0.0.1:8000
+
+Rotas da API:
+- `/api/users` 
+    - GET : Lista todos os usuários cadastrados
+    - POST { name, email, password } : Adiciona um novo usuário
+
+- `/api/users/{id}`
+    - GET : Retorna o usuário e sua lista de URLs cadastrados
+
+- `/api/urls`
+    - GET : Lista todos os URLs cadastrados
+    - POST { url, userId } : Adiciona um novo URL
+
+- `/api/urls/{id}`
+    - PUT : Atualiza o URL especificado
+    - DELETE : Exclui o URL especificado
+
 ## Frontend
 Abra uma nova janela no terminal, navegue até o projeto e entre na pasta `/frontend`.
 
