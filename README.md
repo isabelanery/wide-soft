@@ -2,7 +2,8 @@
 
 ## Descrição
 Esse é meu primeiro projeto com PHP e Laravel.
-Foi desenvolvido para um processo seletivo. 
+Foi desenvolvido para um processo seletivo.
+ 
 O objetivo era criar uma aplicação onde os clientes - usuário cadastrados - pudessem cadastrar os URLs que desejam rastrear. 
 
 ## Ferramentas utilizadas
